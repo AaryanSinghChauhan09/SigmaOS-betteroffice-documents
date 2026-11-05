@@ -1,0 +1,9 @@
+[package]
+name = "sigmaos_betteroffice_documents"
+version = "0.1.0"
+edition = "2021"
+description = "BetterOffice document editor — collaborative editing, track changes, comments, and ODF/DOCX interoperability"
+
+[lib]
+name = "sigmaos_betteroffice_documents"
+path = "src/lib.rs"

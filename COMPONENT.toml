@@ -1,0 +1,16 @@
+[component]
+name = "SigmaOS-betteroffice-documents"
+tier = 3
+stability = "scaffold"
+language = "rust"
+description = "BetterOffice document editor — collaborative editing, track changes, comments, and ODF/DOCX interoperability"
+upstream = []
+
+[contract]
+provides = ["document-editing", "collaborative-authoring"]
+depends_on = []
+
+[maturity]
+status = "Scaffold"
+test_evidence = "Compiles"
+next_milestone = "Verification test suite"
