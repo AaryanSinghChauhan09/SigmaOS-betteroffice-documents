@@ -79,7 +79,9 @@ impl CollabDocument {
     }
 
     pub fn add_paragraph(&mut self, paragraph: Paragraph) -> Result<(), DocumentError> {
-        if paragraph.content.trim().is_empty() { return Err(DocumentError::EmptyContent); }
+        if paragraph.content.trim().is_empty() {
+            return Err(DocumentError::EmptyContent);
+        }
         let id = paragraph.id.clone();
         if self.paragraphs.contains_key(&id) {
             return Err(DocumentError::DuplicateParagraph(id.clone()));
@@ -92,11 +94,17 @@ impl CollabDocument {
         self.comments.insert(comment.id.clone(), comment);
     }
 
-    pub fn paragraph_count(&self) -> usize { self.paragraphs.len() }
+    pub fn paragraph_count(&self) -> usize {
+        self.paragraphs.len()
+    }
 
-    pub fn comment_count(&self) -> usize { self.comments.len() }
+    pub fn comment_count(&self) -> usize {
+        self.comments.len()
+    }
 
-    pub fn paragraphs(&self) -> Vec<&Paragraph> { self.paragraphs.values().collect() }
+    pub fn paragraphs(&self) -> Vec<&Paragraph> {
+        self.paragraphs.values().collect()
+    }
 }
 
 #[cfg(test)]
@@ -113,7 +121,11 @@ mod tests {
     #[test]
     fn test_add_paragraph_aaa() {
         let mut d = CollabDocument::new("My Doc");
-        let p = Paragraph { id: "p1".into(), content: "Hello".into(), style: ParagraphStyle::Normal };
+        let p = Paragraph {
+            id: "p1".into(),
+            content: "Hello".into(),
+            style: ParagraphStyle::Normal,
+        };
         d.add_paragraph(p).unwrap();
         assert_eq!(d.paragraph_count(), 1);
     }
@@ -121,23 +133,39 @@ mod tests {
     #[test]
     fn test_empty_content_rejected_aaa() {
         let mut d = CollabDocument::new("My Doc");
-        let p = Paragraph { id: "x".into(), content: "".into(), style: ParagraphStyle::Normal };
+        let p = Paragraph {
+            id: "x".into(),
+            content: "".into(),
+            style: ParagraphStyle::Normal,
+        };
         assert!(d.add_paragraph(p).is_err());
     }
 
     #[test]
     fn test_add_comment_aaa() {
         let mut d = CollabDocument::new("My Doc");
-        d.add_comment(Comment { id: "c1".into(), author: "Alice".into(), content: "Looks good".into() });
+        d.add_comment(Comment {
+            id: "c1".into(),
+            author: "Alice".into(),
+            content: "Looks good".into(),
+        });
         assert_eq!(d.comment_count(), 1);
     }
 
     #[test]
     fn test_duplicate_rejected_aaa() {
         let mut d = CollabDocument::new("My Doc");
-        let p = Paragraph { id: "x".into(), content: "X".into(), style: ParagraphStyle::Normal };
+        let p = Paragraph {
+            id: "x".into(),
+            content: "X".into(),
+            style: ParagraphStyle::Normal,
+        };
         d.add_paragraph(p).unwrap();
-        let p2 = Paragraph { id: "x".into(), content: "X".into(), style: ParagraphStyle::Normal };
+        let p2 = Paragraph {
+            id: "x".into(),
+            content: "X".into(),
+            style: ParagraphStyle::Normal,
+        };
         assert!(d.add_paragraph(p2).is_err());
     }
 }
