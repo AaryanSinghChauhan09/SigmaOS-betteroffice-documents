@@ -1,7 +1,7 @@
 [component]
 name = "SigmaOS-betteroffice-documents"
 tier = 3
-stability = "scaffold"
+stability = "beta"
 language = "rust"
 description = "No GitHub description is set; component scope remains unclassified."
 upstream = []
@@ -11,6 +11,6 @@ provides = ["document-editing", "collaborative-authoring"]
 depends_on = []
 
 [maturity]
-status = "Scaffold"
+status = "Implemented"
 test_evidence = "Compiles"
 next_milestone = "Verification test suite"
