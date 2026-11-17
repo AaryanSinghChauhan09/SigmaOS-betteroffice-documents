@@ -3,7 +3,7 @@ name = "SigmaOS-betteroffice-documents"
 tier = 3
 stability = "scaffold"
 language = "rust"
-description = "BetterOffice document editor — collaborative editing, track changes, comments, and ODF/DOCX interoperability"
+description = "No GitHub description is set; component scope remains unclassified."
 upstream = []
 
 [contract]
